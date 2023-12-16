@@ -11,13 +11,16 @@
  * @type {import('../../typings').TriggerCommand}
  */
 module.exports = {
-	name: ["your", "trigger", "words", "in", "array"],
+	name: [""],
 
-	execute(message, args) {
+	execute(message, member) {
 		// Put all your trigger code over here. This code will be executed when any of the element in the "name" array is found in the message content.
-
-		message.channel.send({
-			content: "Set this trigger response from `./triggers/reactions/hello.js`",
-		});
+		if (message.channel === message.guild.channels.cache.find(channel => channel.name === "media	")) 
+		{
+			const linkRegex = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g)
+			if (!linkRegex.test(message.content)) {
+				message.delete()
+			}
+		}
 	},
 };

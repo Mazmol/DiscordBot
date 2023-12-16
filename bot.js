@@ -210,6 +210,7 @@ for (const module of modalCommands) {
 	}
 }
 
+
 /**********************************************************************/
 // Registration of select-menus Interactions
 
